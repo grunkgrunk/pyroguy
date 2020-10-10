@@ -4,6 +4,7 @@ var dir = Vector2()
 var dead = false
 var move_speed = 20
 var burns = false
+export(PackedScene) var expl
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$body.connect("burns", self, "on_burns")
@@ -18,6 +19,7 @@ func _ready():
 func _process(delta):
 	if dead:
 		return
+	$anim.modulate = Color(0,0,0)
 	move_and_collide(dir * move_speed * delta)
 	
 
@@ -51,6 +53,11 @@ func choice(x, a, b):
 		return b
 
 func on_burns():
+	for i in range(3):
+		var s = expl.instance()
+		s.global_position = Vector2() 
+		s.initial()
+		
 	burns = true 
 	move_speed = 70
 	$anim.speed_scale = 4

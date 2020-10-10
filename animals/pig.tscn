@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://animals/animal.tscn" type="PackedScene" id=1]
+[ext_resource path="res://animals/pig_animation.tres" type="SpriteFrames" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 7.05029
+
+[node name="pig" instance=ExtResource( 1 )]
+collision_mask = 2
+
+[node name="body" parent="." index="0"]
+damage = 100000
+
+[node name="anim" parent="." index="1"]
+scale = Vector2( 0.4, 0.4 )
+frames = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+position = Vector2( 0.875, 2.125 )
+shape = SubResource( 1 )

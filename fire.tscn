@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fire.gd" type="Script" id=1]
+[ext_resource path="res://explosion.tscn" type="PackedScene" id=2]
+
+[node name="fire" type="Node2D"]
+position = Vector2( 348.131, 211.906 )
+script = ExtResource( 1 )
+expl = ExtResource( 2 )

@@ -5,6 +5,8 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
+export(PackedScene) var particle
+
 var last_dir = Vector2(1,0)
 var move_speed = 50
 var gun_range = 50
@@ -32,21 +34,24 @@ func _process(delta):
 	vel = vel.normalized()
 	if vel.length() > 0:
 		last_dir = vel
-	$gun.emitting = false
 	if Input.is_action_pressed("shoot"):
-		$gun.emitting = true
+		var p = particle.instance()
+		p.position = global_position
+		p.standard()
+		var a = last_dir.angle()
+		var spread = 0.2
+		$cam.add_trauma(0.1)
+		var na = a + rand_range(-spread, spread)
+		p.vel = Vector2(cos(na), sin(na)) * rand_range(150, 200) 
+		$shots.add_child(p)
 		$ray.cast_to = last_dir * gun_range
 		var r = $ray.get_collider()
 		if r != null:
-			print(r)
 			if r.is_in_group("can_ignite"):
 				r.hit(damage, delta)
 		
-		gun.process_material.direction = Vector3(last_dir.x, last_dir.y, 0)
 	
 	move_and_slide(vel * move_speed)
-	
-	
 	
 func hit(dmg, delta):
 	health -= dmg * delta

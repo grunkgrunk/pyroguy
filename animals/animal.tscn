@@ -2,31 +2,23 @@
 
 [ext_resource path="res://chicken_animation.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://body.tscn" type="PackedScene" id=2]
-[ext_resource path="res://burnable.gd" type="Script" id=3]
-[ext_resource path="res://animal.gd" type="Script" id=4]
-
-[sub_resource type="CircleShape2D" id=14]
-radius = 29.6971
+[ext_resource path="res://text.tscn" type="PackedScene" id=3]
+[ext_resource path="res://animals/animal.gd" type="Script" id=4]
+[ext_resource path="res://explosion.tscn" type="PackedScene" id=5]
 
 [node name="animal" type="KinematicBody2D"]
 position = Vector2( 566.325, 305.815 )
 script = ExtResource( 4 )
+expl = ExtResource( 5 )
 
-[node name="body" type="Area2D" parent="." groups=[
-"can_ignite",
-] instance=ExtResource( 2 )]
+[node name="body" parent="." instance=ExtResource( 2 )]
 position = Vector2( -4.3501, 0.664913 )
-script = ExtResource( 3 )
+text_display = ExtResource( 3 )
 
 [node name="anim" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "eat_right"
-frame = 2
 playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.992126, 2.3811 )
-shape = SubResource( 14 )
 
 [node name="timer" type="Timer" parent="."]
 autostart = true
