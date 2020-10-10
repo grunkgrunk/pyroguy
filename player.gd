@@ -38,6 +38,7 @@ func _process(delta):
 		$ray.cast_to = last_dir * gun_range
 		var r = $ray.get_collider()
 		if r != null:
+			print(r)
 			if r.is_in_group("can_ignite"):
 				r.hit(damage, delta)
 		

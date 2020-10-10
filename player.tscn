@@ -39,3 +39,6 @@ process_material = SubResource( 2 )
 
 [node name="ray" type="RayCast2D" parent="."]
 enabled = true
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
