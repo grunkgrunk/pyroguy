@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://puroguyignitable.json" type="PackedScene" id=1]
-
-[node name="puroguyignitable" instance=ExtResource( 1 )]

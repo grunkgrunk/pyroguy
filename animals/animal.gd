@@ -7,7 +7,6 @@ var burns = false
 export(PackedScene) var expl
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$body.connect("burns", self, "on_burns")
 	$body.connect("dead", self, "on_dead")
 	$body.connect("hit", self, "on_hit")
 	
@@ -53,10 +52,6 @@ func choice(x, a, b):
 		return b
 
 func on_burns():
-	for i in range(3):
-		var s = expl.instance()
-		s.global_position = Vector2() 
-		s.initial()
 		
 	burns = true 
 	move_speed = 70

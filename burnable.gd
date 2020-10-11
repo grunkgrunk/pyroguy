@@ -13,10 +13,11 @@ onready var max_burn_time = burn_time
 export var damage = 1
 var is_dead = false
 var burns_started = false
+onready var extra_damage = rand_range(0, 2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Rep
+	$fire.global_position = global_position
 	
 func _process(delta):
 	if is_dead:
@@ -24,21 +25,21 @@ func _process(delta):
 	if health_before_ignition < 0:
 		burn_time -= delta
 		if not burns_started:
-			$fire.emitting = true
+			$fire.emitting(true)
 			emit_signal("burns")
 			var t = text_display.instance()
 			t.text(str(worth))
 			burns_started = true
 			add_child(t)
 		if burn_time < 0:
-			$fire.emitting = false
+			$fire.emitting(false)
 			is_dead = true
 			emit_signal("dead", self)
 			
 		else:
 			for a in get_overlapping_areas():
 				if a.is_in_group("can_ignite"):
-					a.hit(damage, delta)
+					a.hit(damage + extra_damage, delta)
 
 func hit(dmg, delta):
 	emit_signal("hit")

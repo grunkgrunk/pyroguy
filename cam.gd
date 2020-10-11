@@ -1,6 +1,12 @@
 extends Camera2D
 class_name ShakeCamera2D
 
+
+export(NodePath) var p1_path
+export(NodePath) var p2_path
+onready var p1 = get_node(p1_path)
+onready var p2 = get_node(p2_path)
+
 export var decay = 0.8  # How quickly the shaking stops [0, 1].
 export var max_offset = Vector2(1, 1)  # Maximum hor/ver shake in pixels.
 export var max_roll = 0.1  # Maximum rotation in radians (use sparingly).
@@ -16,8 +22,11 @@ func _ready():
 	noise.seed = randi()
 	noise.period = 4
 	noise.octaves = 2
+	
 
 func _process(delta):
+	
+	position = (p1.global_position + p2.global_position) / 2
 	if target:
 		global_position = get_node(target).global_position
 	if trauma:
@@ -38,4 +47,14 @@ func shake():
 	
 func add_trauma(amount):
 	trauma = min(trauma + amount, 1.0)
-	
+
+func on_p_shooting():
+	add_trauma(0.1)
+
+
+func _on_p1_shooting():
+	on_p_shooting() 
+
+
+func _on_p2_shooting():
+	on_p_shooting() 

@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://burnable.gd" type="Script" id=1]
-[ext_resource path="res://fire.tscn" type="PackedScene" id=2]
+[ext_resource path="res://explosion-1.png" type="Texture" id=2]
+[ext_resource path="res://text.tscn" type="PackedScene" id=3]
+[ext_resource path="res://fire_emitter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://smoke_emitter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://explosion-blue.png" type="Texture" id=6]
+[ext_resource path="res://fire_with_smoke.gd" type="Script" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -12,9 +17,21 @@ position = Vector2( 167.435, 52.578 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 1 )
+text_display = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="fire" parent="." instance=ExtResource( 2 )]
-position = Vector2( -0.0639191, 0.315865 )
+[node name="fire" type="Node2D" parent="."]
+script = ExtResource( 7 )
+blue = ExtResource( 6 )
+red = ExtResource( 2 )
+
+[node name="smoke_emitter" parent="fire" instance=ExtResource( 5 )]
+position = Vector2( -0.187302, 1.85402 )
+emitting = false
+local_coords = true
+
+[node name="fire_emitter" parent="fire" instance=ExtResource( 4 )]
+emitting = false
+amount = 5

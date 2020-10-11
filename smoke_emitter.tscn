@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://explosion-smoke.png" type="Texture" id=1]
+[ext_resource path="res://fire_emitter.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 0.306818 ), 0.0, 0.0, 0, 0, Vector2( 0.968354, 0.934091 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+lifetime_randomness = 0.37
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 18.11
+flatness = 0.05
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 0.25
+angular_velocity = 99.31
+angular_velocity_random = 0.41
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 6.0
+damping_random = 0.51
+scale_random = 1.0
+scale_curve = SubResource( 7 )
+anim_speed = 1.0
+anim_speed_random = 0.11
+anim_offset_random = 0.1
+
+[node name="smoke_emitter" instance=ExtResource( 2 )]
+modulate = Color( 0.988235, 0.972549, 0.972549, 1 )
+amount = 5
+lifetime = 0.3
+speed_scale = 0.3
+process_material = SubResource( 5 )
+texture = ExtResource( 1 )

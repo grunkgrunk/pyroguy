@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://explosion-1.png" type="Texture" id=1]
+[ext_resource path="res://fire_emitter.tres" type="Material" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="fire_emitter" type="Particles2D"]
+material = SubResource( 1 )
+amount = 20
+local_coords = false
+process_material = ExtResource( 2 )
+texture = ExtResource( 1 )

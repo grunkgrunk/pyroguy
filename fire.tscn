@@ -7,3 +7,6 @@
 position = Vector2( 348.131, 211.906 )
 script = ExtResource( 1 )
 expl = ExtResource( 2 )
+
+[node name="emit_speed" type="Timer" parent="."]
+autostart = true

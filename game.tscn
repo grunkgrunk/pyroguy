@@ -1,11 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://score.tscn" type="PackedScene" id=2]
-[ext_resource path="res://puroguyignitable.json" type="PackedScene" id=3]
+[ext_resource path="res://game_map.tscn" type="PackedScene" id=3]
 [ext_resource path="res://animals/pig.tscn" type="PackedScene" id=4]
+[ext_resource path="res://cam.gd" type="Script" id=5]
+[ext_resource path="res://objects.gd" type="Script" id=6]
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=1]
 script/source = "extends KinematicBody2D
 
 var dir = Vector2()
@@ -74,112 +76,132 @@ position = Vector2( 6.46309, -3.13954 )
 
 [node name="puroguyignitable" parent="." instance=ExtResource( 3 )]
 
-[node name="YSort" type="YSort" parent="."]
+[node name="objects" type="YSort" parent="."]
+script = ExtResource( 6 )
 
-[node name="animals" type="YSort" parent="YSort"]
+[node name="animals" type="YSort" parent="objects"]
 position = Vector2( 0.249999, 0.499998 )
 
-[node name="pig" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 537.549, 1363.72 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig2" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig2" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 563.117, 1357.78 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig3" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig3" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 503.062, 1354.8 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig4" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig4" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 569.063, 1394.64 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig5" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig5" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 526.252, 1404.15 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig6" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig6" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 549.441, 1427.94 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig7" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig7" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 463.818, 1377.99 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig8" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig8" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 551.82, 1322.1 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig9" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig9" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 574.415, 1373.24 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig10" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig10" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 599.982, 1367.29 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig11" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig11" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 539.927, 1364.32 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig12" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig12" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 605.928, 1404.16 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig13" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig13" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 563.117, 1413.67 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig14" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig14" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 586.307, 1437.45 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig15" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig15" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 500.684, 1387.51 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig16" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig16" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 588.685, 1331.61 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig17" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig17" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 514.36, 1421.4 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig18" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig18" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 539.927, 1415.45 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig19" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig19" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 479.872, 1412.48 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig20" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig20" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 545.874, 1452.32 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig21" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig21" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 503.062, 1461.83 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig22" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig22" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 526.252, 1485.62 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig23" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig23" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 440.629, 1435.67 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="pig24" parent="YSort/animals" instance=ExtResource( 4 )]
+[node name="pig24" parent="objects/animals" instance=ExtResource( 4 )]
 position = Vector2( 528.63, 1379.78 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
-[node name="player" parent="YSort" groups=[
+[node name="static" type="YSort" parent="objects"]
+
+[node name="p1" parent="objects" groups=[
 "can_ignite",
 ] instance=ExtResource( 1 )]
-position = Vector2( 313.673, 1334.57 )
+position = Vector2( 979.663, 204.405 )
+player_num = 1
+
+[node name="p2" parent="objects" groups=[
+"can_ignite",
+] instance=ExtResource( 1 )]
+position = Vector2( 1008.24, 206.389 )
+player_num = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="score" parent="CanvasLayer" instance=ExtResource( 2 )]
+
+[node name="cam" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.3, 0.3 )
+script = ExtResource( 5 )
+p1_path = NodePath("../objects/p1")
+p2_path = NodePath("../objects/p2")
+[connection signal="spawn" from="puroguyignitable" to="objects" method="_on_puroguyignitable_spawn"]
+[connection signal="shooting" from="objects/p1" to="cam" method="_on_p1_shooting"]
+[connection signal="shooting" from="objects/p2" to="cam" method="_on_p2_shooting"]

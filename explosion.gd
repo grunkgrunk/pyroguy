@@ -10,14 +10,11 @@ var rspd = 0
 func _ready():
 	set_as_toplevel(true)
 	playing = true
+	standard()
 
 
-func initial():
-	animation = "init"
-	
 
 func standard():
-	animation = "continuous"
 	rspd = rand_range(-1,1)
 	speed_scale = rand_range(3, 4)
 	flip_h = num_to_bool(rand_range(0,1))
@@ -32,8 +29,7 @@ func num_to_bool(a):
 	return a < 0.5
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not animation == "init":
-		position += vel * delta
+	position += vel * delta
 	#rotation += rspd
 
 

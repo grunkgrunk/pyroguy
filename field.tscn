@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://body.tscn" type="PackedScene" id=1]
+[ext_resource path="res://farm.png" type="Texture" id=2]
+[ext_resource path="res://tile.gd" type="Script" id=3]
+
+[node name="field" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="body" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0.517059, 0.0219688 )
+worth = 10
+health_before_ignition = 1
+burn_time = 3
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 122.541, 185.201, 16, 16 )
