@@ -9,16 +9,18 @@ export(PackedScene) var expl
 func _ready():
 	$body.connect("dead", self, "on_dead")
 	$body.connect("hit", self, "on_hit")
+	$body.connect("burns", self, "on_burns")
 	
 	dir = r()
 	$timer.connect("timeout", self, "on_timeout")
 	on_timeout()
+	$normal.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if dead:
 		return
-	$anim.modulate = Color(0,0,0)
+	
 	move_and_collide(dir * move_speed * delta)
 	
 
@@ -37,6 +39,7 @@ func on_timeout():
 		var d = r()
 		if abs(d.x) > abs(d.y):
 			$anim.animation = "walk_" + choice(d.x, "left", "right")
+			$anim.animation = "walk_" + choice(d.x, "left", "right")
 		else:
 			$anim.animation = "walk_" + choice(d.y, "up", "down")
 		dir = d
@@ -52,12 +55,15 @@ func choice(x, a, b):
 		return b
 
 func on_burns():
-		
+	$auch.play()
+	$normal.stop()
 	burns = true 
 	move_speed = 70
 	$anim.speed_scale = 4
-func on_dead():
+func on_dead(a):
 	dead = true
+	$normal.stop()
+	$auch.stop()
 	$anim.stop()
 func on_hit():
 	pass

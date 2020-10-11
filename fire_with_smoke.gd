@@ -3,9 +3,11 @@ extends Node2D
 
 export(Texture) var blue
 export(Texture) var red
+export(bool) var emit = false
 
 func _ready():
 	set_as_toplevel(true)
+	emitting(emit)
 
 func _process(delta):
 	if Global.multiplier >= 5:

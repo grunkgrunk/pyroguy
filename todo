@@ -1,42 +1,42 @@
-load tilemap with code (load flameable things)
-build farms
-implement two player? (friendly fire)
-score
+animals not working
+fire area not working 
+dark? (add bloom to fire) - no
+avoid flamethorwer spam (cooldown?)
 player death
 intro screen
 game over screen 
-overall timer (juice it up)
-dark? (add bloom to fire)
-smoke (gray scale)
+smoke (gray scale) - ugly
 show how much health things have
-add bones when dead
+add bones when dead - no
 low damage on gun 
-faster movespeed when not shooting
 sounds 
     walk
-    pigs 
-    chicken
-    flame thrower
     people
-    fire
-musik
+musik - done?
 repair fire
 
+implement two player? (friendly fire) - doneish
 angry people (shoot?)
 fuel trail
 
 TNT
 Fences
 
-avoid flamethorwer spam (cooldown?)
+load tilemap with code (load flameable things) - done
 
 
+score - done
 fire department?
 draw flamethrower
 
 shadows? 
+overall timer (juice it up) - yes
 
 more juice 
+build farms - done
+
+
+faster movespeed when not shooting - yes
 
 
 
@@ -46,9 +46,12 @@ more juice
 
 
 
-
-
-
+sounds
+    pigs - done
+    chicken - done
+    flame thrower - done
+    
+    fire - done
 
 
 
