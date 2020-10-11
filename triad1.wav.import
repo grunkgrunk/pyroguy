@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/triad1.wav-b03406aa0c91a83af170cef06a9e77b6.sample"
+
+[deps]
+
+source_file="res://triad1.wav"
+dest_files=[ "res://.import/triad1.wav-b03406aa0c91a83af170cef06a9e77b6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

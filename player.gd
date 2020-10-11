@@ -79,7 +79,6 @@ func _process(delta):
 
 func on_burns():
 	lives -= 1
-	print("sdaasd")
 	if lives == 0:
 	
 		emit_signal("gameover")

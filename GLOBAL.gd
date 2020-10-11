@@ -8,19 +8,21 @@ var multiplier = 1
 var till_next_multiplier = 500
 var has_turned_crazy = false
 
-
 func _ready():
 	$Timer.connect("timeout", self, "timeout")
 
 func _process(dt):
+	if Input.is_action_just_pressed("ui_cancel"):
+		score += 1000
 	var diff = abs(score - last_score_mult)
 	if diff > till_next_multiplier * multiplier * 1.1:
+		get_node("t" + str( (multiplier) % 5 )).play()
 		multiplier += 1
 		last_score_mult = score
 		if multiplier >= 5 and not has_turned_crazy:
 			has_turned_crazy = true
-			$explosion.play()
-			$explosion2.play()
+			#$explosion.play()
+			#$explosion2.play()
 			emit_signal("turned_crazy")
 
 func incr_score(by):
