@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/angrychicken.wav-0b8f2eb0198a9c06b97120ca3526d924.sample"
+
+[deps]
+
+source_file="res://animals/angrychicken.wav"
+dest_files=[ "res://.import/angrychicken.wav-0b8f2eb0198a9c06b97120ca3526d924.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -7,6 +7,12 @@ export(Texture) var red
 func _ready():
 	set_as_toplevel(true)
 
+func _process(delta):
+	if Global.multiplier >= 5:
+		set_color("blue")
+	else:
+		set_color("red")
+
 func emitting(v):
 	# $smoke_emitter.emitting  =v 
 	$fire_emitter.emitting = v

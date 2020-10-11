@@ -26,15 +26,19 @@ func _process(delta):
 		burn_time -= delta
 		if not burns_started:
 			$fire.emitting(true)
+			$fire_sound.play()
 			emit_signal("burns")
 			var t = text_display.instance()
-			t.text(str(worth))
+			t.text("+" +str(worth * Global.multiplier))
 			burns_started = true
+			Global.incr_score(worth * Global.multiplier)
 			add_child(t)
 		if burn_time < 0:
 			$fire.emitting(false)
 			is_dead = true
 			emit_signal("dead", self)
+			$fire_vol.interpolate_property($fire_sound, "volume_db", 0, -100, 1)
+			$fire_vol.start()
 			
 		else:
 			for a in get_overlapping_areas():

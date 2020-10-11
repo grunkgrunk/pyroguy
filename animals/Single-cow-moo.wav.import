@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Single-cow-moo.wav-3df2e0e2c633aed25a79ff00b633dc9d.sample"
+
+[deps]
+
+source_file="res://animals/Single-cow-moo.wav"
+dest_files=[ "res://.import/Single-cow-moo.wav-3df2e0e2c633aed25a79ff00b633dc9d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

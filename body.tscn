@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://burnable.gd" type="Script" id=1]
 [ext_resource path="res://explosion-1.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://smoke_emitter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://explosion-blue.png" type="Texture" id=6]
 [ext_resource path="res://fire_with_smoke.gd" type="Script" id=7]
+[ext_resource path="res://animals/Fireinstuff.wav" type="AudioStream" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -35,3 +36,9 @@ local_coords = true
 [node name="fire_emitter" parent="fire" instance=ExtResource( 4 )]
 emitting = false
 amount = 5
+local_coords = true
+
+[node name="fire_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+
+[node name="fire_vol" type="Tween" parent="."]

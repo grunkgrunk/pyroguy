@@ -24,6 +24,10 @@ config/name="Pyroguy"
 run/main_scene="res://game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Global.tscn"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "vnen.tiled_importer" )

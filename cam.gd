@@ -8,7 +8,7 @@ onready var p1 = get_node(p1_path)
 onready var p2 = get_node(p2_path)
 
 export var decay = 0.8  # How quickly the shaking stops [0, 1].
-export var max_offset = Vector2(1, 1)  # Maximum hor/ver shake in pixels.
+export var max_offset = Vector2(50, 50)  # Maximum hor/ver shake in pixels.
 export var max_roll = 0.1  # Maximum rotation in radians (use sparingly).
 export (NodePath) var target  # Assign the node this camera will follow.
 
@@ -18,6 +18,7 @@ onready var noise = OpenSimplexNoise.new()
 var noise_y = 0
 
 func _ready():
+	Global.connect("turned_crazy", self, "turned_crazy")
 	randomize()
 	noise.seed = randi()
 	noise.period = 4
@@ -49,8 +50,7 @@ func add_trauma(amount):
 	trauma = min(trauma + amount, 1.0)
 
 func on_p_shooting():
-	add_trauma(0.1)
-
+	trauma = 0.2
 
 func _on_p1_shooting():
 	on_p_shooting() 
@@ -58,3 +58,6 @@ func _on_p1_shooting():
 
 func _on_p2_shooting():
 	on_p_shooting() 
+
+func turned_crazy():
+	trauma = 1

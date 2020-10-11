@@ -10,6 +10,8 @@ var move_speed = 200
 var gun_range = 50
 var damage = 1
 var health = 2
+var speed_when_fire = 50
+var cur_speed = 0
 
 onready var gun = $gun
 
@@ -27,6 +29,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	$fire.global_position = global_position
 	var vel = Vector2()
 	if Input.is_action_pressed("left_" + str(player_num)):
@@ -43,7 +46,10 @@ func _process(delta):
 	
 	$Sprite.flip_h = last_dir.x < 0
 	$fire.emitting(false)
+	cur_speed = move_speed
 	if Input.is_action_pressed("shoot_" + str(player_num)):
+		$fire.position = position + last_dir * 9
+		cur_speed = speed_when_fire
 		$fire.set_dir(last_dir)
 		$fire.emitting(true)
 		#var p = particle.instance()
@@ -55,16 +61,26 @@ func _process(delta):
 		#var na = a + rand_range(-spread, spread)
 		#p.vel = Vector2(cos(na), sin(na)) * rand_range(150, 200) 
 		#$shots.add_child(p)
+		
 		$ray.cast_to = last_dir * gun_range
 		var r = $ray.get_collider()
 		if r != null:
 			if r.is_in_group("can_ignite"):
 				r.hit(damage, delta)
+	
+	if Input.is_action_just_pressed("shoot_" + str(player_num)):
+		$fire_vol.stop_all()
+		$fire_sound.volume_db = 0
+		$fire_sound.play()
+		
+	if Input.is_action_just_released("shoot_" + str(player_num)):
+		$fire_vol.interpolate_property($fire_sound, "volume_db", 0, -100, 1)
+		$fire_vol.start()
 		
 	
-	move_and_slide(vel * move_speed)
+	move_and_slide(vel * cur_speed)
 	
 func hit(dmg, delta):
 	health -= dmg * delta
 	if health < 0:
-		print("player is ded")
+		pass

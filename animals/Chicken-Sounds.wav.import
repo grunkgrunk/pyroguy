@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Chicken-Sounds.wav-b2bd4ad4bbad9877c30b13caacb7d236.sample"
+
+[deps]
+
+source_file="res://animals/Chicken-Sounds.wav"
+dest_files=[ "res://.import/Chicken-Sounds.wav-b2bd4ad4bbad9877c30b13caacb7d236.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

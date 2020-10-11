@@ -11,6 +11,5 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_puroguyignitable_spawn(o):
-	print(o)
 	$static.add_child(o)
 	
