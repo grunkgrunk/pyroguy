@@ -13,10 +13,10 @@ var amp = 10
 var ix = 0
 var iy = 0
 var showtime = false
+var reason = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$firestarter.connect("timeout", self, "t")
 	$firestarter.connect("timeout", self, "t")
 	$showtimer.connect("timeout", self, "s")
 	$press_to_play.connect("timeout", self, "w")
@@ -24,7 +24,7 @@ func _ready():
 	
 	var ix = $Label.position.x
 	var iy = $Label.position.y
-	$Label/Label.text = "Pyro wizards"
+	$Label/Label.text = reason
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,10 +45,6 @@ func _process(delta):
 		
 		
 
-func w():
-	showtime = true
-	
-
 func t():
 	var e = emitter.instance()
 	e.emit = true
@@ -63,6 +59,11 @@ func s():
 	shake = true
 	$explosion.play()
 	
+func w():
+	$Label3.show()
+	$Label3.text = "SCORE: " + str(Global.score)
+	$Label2.show()
+	showtime = true
 
 func b():
 	if showtime:

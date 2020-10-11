@@ -12,7 +12,7 @@
 [ext_resource path="res://body.tscn" type="PackedScene" id=10]
 [ext_resource path="res://body_player.gd" type="Script" id=11]
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=1]
 resource_name = "hurt"
 length = 0.4
 tracks/0/type = "value"
@@ -28,17 +28,16 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 4.18241
-height = 6.14544
+[sub_resource type="CircleShape2D" id=2]
+radius = 2.0
 
-[sub_resource type="Curve" id=2]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0.306818 ), 0.0, 0.0, 0, 0, Vector2( 0.968354, 0.934091 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=3]
-curve = SubResource( 2 )
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=5]
 lifetime_randomness = 0.37
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
@@ -54,18 +53,18 @@ orbit_velocity_random = 0.0
 damping = 6.0
 damping_random = 0.51
 scale_random = 1.0
-scale_curve = SubResource( 3 )
+scale_curve = SubResource( 4 )
 anim_speed = 1.0
 anim_speed_random = 0.11
 anim_offset_random = 0.1
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=6]
 _data = [ Vector2( 0.0443038, 0.979545 ), 0.0, 0.0, 0, 0, Vector2( 0.968354, 0.934091 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=6]
-curve = SubResource( 5 )
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=8]
 render_priority = 127
 lifetime_randomness = 0.37
 emission_shape = 1
@@ -84,15 +83,15 @@ orbit_velocity_random = 0.0
 damping = 6.0
 damping_random = 0.51
 scale_random = 1.0
-scale_curve = SubResource( 6 )
+scale_curve = SubResource( 7 )
 anim_speed = 1.0
 anim_speed_random = 0.11
 anim_offset_random = 0.1
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 30.074, 15 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 resource_name = "shoot"
 length = 0.2
 tracks/0/type = "value"
@@ -132,8 +131,7 @@ tracks/2/keys = {
 "values": [ 0.0, -12.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "walk"
+[sub_resource type="Animation" id=11]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -166,7 +164,7 @@ script = ExtResource( 2 )
 particle = ExtResource( 3 )
 
 [node name="body" parent="." instance=ExtResource( 10 )]
-position = Vector2( 0.314171, 0.460712 )
+position = Vector2( 0.103708, -7.60698 )
 script = ExtResource( 11 )
 burn_time = 10
 
@@ -179,16 +177,17 @@ wait_time = 3.0
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="body"]
-anims/hurt = SubResource( 9 )
+anims/hurt = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+offset = Vector2( 0, -8 )
 region_enabled = true
 region_rect = Rect2( 143.638, 223.618, 16, 16.65 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource( 1 )
+position = Vector2( 0.0515442, -0.214689 )
+shape = SubResource( 2 )
 
 [node name="fire" type="Node2D" parent="."]
 position = Vector2( 5.0113, -1.22499 )
@@ -200,11 +199,11 @@ red = ExtResource( 5 )
 position = Vector2( -0.187302, 1.85402 )
 emitting = false
 local_coords = true
-process_material = SubResource( 4 )
+process_material = SubResource( 5 )
 
 [node name="fire_emitter" parent="fire" instance=ExtResource( 6 )]
 emitting = false
-process_material = SubResource( 7 )
+process_material = SubResource( 8 )
 
 [node name="shots" type="Node2D" parent="."]
 visible = false
@@ -220,8 +219,8 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="aim"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/shoot = SubResource( 11 )
-anims/walk = SubResource( 10 )
+anims/shoot = SubResource( 10 )
+anims/walk = SubResource( 11 )

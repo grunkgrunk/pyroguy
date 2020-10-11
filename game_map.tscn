@@ -7,3 +7,9 @@
 [node name="puroguyignitable" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 field = ExtResource( 3 )
+
+[node name="CanIgniteALso" parent="." index="4"]
+visible = false
+
+[node name="CanIgnite" parent="." index="5"]
+visible = false

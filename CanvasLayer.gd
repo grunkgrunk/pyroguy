@@ -13,4 +13,5 @@ func _ready():
 
 func _process(delta):
 	$score.text = str(Global.score)
-	$mult.text = "x" + str(Global.multiplier)
+	$mult.text = "X" + str(Global.multiplier)
+	$time_left.text = "Time left: " + str(round($game_timer.time_left))

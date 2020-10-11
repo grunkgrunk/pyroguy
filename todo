@@ -1,19 +1,28 @@
+
+sound when something is lit
+juice timer and multiplier.
+sound when multiplier falls
+sound when player is hurt
+
+cleaner transition
+skeleboyz
+rip gravestone
 animals not working
-fire area not working 
+fire area not working - dine
 dark? (add bloom to fire) - no
-avoid flamethorwer spam (cooldown?)
-player death
-intro screen
-game over screen 
+avoid flamethorwer spam (cooldown?) - no probs
+player death - works ()
+intro screen - done
+game over screen  - done
 smoke (gray scale) - ugly
 show how much health things have
 add bones when dead - no
 low damage on gun 
 sounds 
-    walk
+    walk - almost done
     people
-musik - done?
-repair fire
+heavy metal when blue fire. 
+green fire other fire, cool fire?? 
 
 implement two player? (friendly fire) - doneish
 angry people (shoot?)
@@ -26,9 +35,6 @@ load tilemap with code (load flameable things) - done
 
 
 score - done
-fire department?
-draw flamethrower
-
 shadows? 
 overall timer (juice it up) - yes
 

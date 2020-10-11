@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+signal gameover
 export(PackedScene) var particle
 signal shooting
 
@@ -78,5 +79,7 @@ func _process(delta):
 
 func on_burns():
 	lives -= 1
+	print("sdaasd")
 	if lives == 0:
+	
 		emit_signal("gameover")
